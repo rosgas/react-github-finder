@@ -1,22 +1,21 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "./components/layout/Navbar";
 import Background from "./components/assets/main-bg.png";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
-  const divStyle = {
-    background: "url(" + Background + ") center center/cover",
-  };
-
   return (
     <Router>
       <div
         className="flex flex-col items-center justify-between h-screen"
-        style={divStyle}
+        style={{ background: "url(" + Background + ") center center/cover" }}
       >
         <Navbar />
 
         <main>Main Content</main>
-        <footer>Footer</footer>
+
+        <Footer />
       </div>
     </Router>
   );
