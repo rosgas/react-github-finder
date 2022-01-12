@@ -11,7 +11,12 @@ function About() {
         for state management and is part of the
         <span className="text-slate-100"> "React Front To Back"</span> course
         from
-        <a href="https://www.traversymedia.com/" className="link text-pink-500">
+        <a
+          href="https://www.traversymedia.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link text-pink-500"
+        >
           {" "}
           Brad Traversy
         </a>
@@ -23,7 +28,12 @@ function About() {
       </p>
       <p>
         Layout by:{" "}
-        <a href="https://github.com/rosgas" className="link text-pink-500">
+        <a
+          href="https://github.com/rosgas"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link text-pink-500"
+        >
           Rossella Gasbarri
         </a>
       </p>
@@ -31,6 +41,7 @@ function About() {
       <a
         href="https://github.com/rosgas/react-github-finder"
         target="_blank"
+        rel="noopener noreferrer"
         className="btn btn-outline btn-accent"
       >
         GitHub Repository

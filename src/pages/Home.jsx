@@ -1,5 +1,12 @@
+import UserResults from "../components/users/UsersResults";
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <>
+      {/* {SEARCH COMPONENT} */}
+      <UserResults />
+    </>
+  );
 }
 
 export default Home;

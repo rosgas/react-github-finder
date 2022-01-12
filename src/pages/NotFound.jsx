@@ -5,7 +5,7 @@ function NotFound() {
   return (
     <div className="flex mx-auto max-w-5xl bg-sky-800/60 rounded-sm shadow-lg p-10 text-slate-300">
       <div className="basis-3/5 flex flex-col items-center justify-center">
-        <img src={ErrorImg} alt="" />
+        <img src={ErrorImg} alt="404 Error" className="mb-4" />
         <a
           href="https://www.freepik.com/vectors/website"
           className="text-xs text-slate-400"
@@ -19,7 +19,7 @@ function NotFound() {
         </h2>
         <p className="max-w-xs mb-6">
           We couldn't find what you're looking for. <br /> It looks you are
-          trying to access a page that either has been delated or never been
+          trying to access a page that either has been deleted or never been
           existed.
         </p>
         <Link to="/" className="btn btn-secondary">
