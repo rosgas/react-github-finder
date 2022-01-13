@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import UserItem from "../users/UserItem";
 import Spinner from "../layout/Spinner";
 
 function UserResults() {
@@ -20,9 +21,12 @@ function UserResults() {
 
   if (!loading) {
     return (
-      <div className="mx-auto bg-sky-800/60 rounded-sm shadow-lg p-10 text-slate-300 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+      <div
+        style={{ height: "calc(100vh - 300px)" }}
+        className="mx-auto bg-sky-800/60 rounded-sm shadow-lg p-10 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-hidden overflow-y-auto "
+      >
         {users.map((user) => (
-          <h3>{user.login}</h3>
+          <UserItem key={user.id} user={user} />
         ))}
       </div>
     );

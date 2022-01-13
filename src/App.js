@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div
-        className="flex flex-col items-center justify-between h-screen leading-normal text-slate-100"
+        className="flex flex-col items-center justify-between h-screen leading-normal text-slate-100 overflow-hidden"
         style={{ background: "url(" + Background + ") center center/cover" }}
       >
         <Navbar />
