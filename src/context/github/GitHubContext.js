@@ -6,20 +6,24 @@ const GitHubContext = createContext();
 export const GitHubProvider = ({ children }) => {
   const initialState = {
     users: [],
-    loading: true,
+    loading: false,
   };
 
-  const [state, dispach] = useReducer(githubReducer, initialState);
+  const [state, dispatch] = useReducer(githubReducer, initialState);
 
   const fetchUsers = async () => {
+    setLoading();
+
     const response = await fetch("http://localhost:8000/users");
     const data = await response.json();
 
-    dispach({
+    dispatch({
       type: "GET_USERS",
       payload: data,
     });
   };
+
+  const setLoading = () => dispatch({ type: "SET_LOADING" });
 
   return (
     <GitHubContext.Provider
