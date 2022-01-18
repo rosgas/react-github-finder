@@ -1,34 +1,28 @@
-const PORT = 8000;
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
+const rateLimit = require("express-rate-limit");
 require("dotenv").config();
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.json("Hi, Ross");
+// Rate limiting
+
+const limiter = rateLimit({
+  windowsMs: 10 * 60 * 1000, //10 mins
+  max: 50,
 });
 
-app.get("/users", (req, res) => {
-  const fetchUsers = {
-    method: "GET",
-    url: `${process.env.REACT_APP_GITHUB_URL}/users`,
-    headers: {
-      Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-    },
-  };
+app.use(limiter);
+app.set("trust proxy", 1);
 
-  axios
-    .request(fetchUsers)
-    .then((response) => {
-      res.json(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+//Set static folder
+app.use(express.static("public"));
 
-app.listen(8000, () => console.log(`Server is running at port ${PORT}`));
+// Routes
+
+app.use("/users", require("./routes/github"));
+
+app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));

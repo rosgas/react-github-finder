@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MdClear } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
+import GitHubContext from "../../context/github/GitHubContext";
 
 function UserSearch() {
   const [text, setText] = useState("");
 
+  const { searchUsers } = useContext(GitHubContext);
+
   const handleChange = (e) => setText(e.target.value);
 
   const handleReset = (e) => {
-    if (text != "") {
+    if (text !== "") {
       setText("");
     }
   };
@@ -19,7 +22,7 @@ function UserSearch() {
     if (text === "") {
       alert("Please enter a user name");
     } else {
-      // todo - search users
+      searchUsers(text);
 
       setText("");
     }
