@@ -11,15 +11,21 @@ export const GitHubProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  const fetchUsers = async () => {
+  const searchUsers = async (text) => {
     setLoading();
 
-    const response = await fetch("http://localhost:8000/users");
-    const data = await response.json();
+    const response = await fetch(`http://localhost:8000/users?q=${text}`);
+    const { items } = await response.json();
 
     dispatch({
       type: "GET_USERS",
-      payload: data,
+      payload: items,
+    });
+  };
+
+  const clearUsers = () => {
+    dispatch({
+      type: "CLEAR_USERS",
     });
   };
 
@@ -30,7 +36,8 @@ export const GitHubProvider = ({ children }) => {
       value={{
         users: state.users,
         loading: state.loading,
-        fetchUsers,
+        searchUsers,
+        clearUsers,
       }}
     >
       {children}
