@@ -2,11 +2,14 @@ import { useState, useContext } from "react";
 import { MdClear } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import GitHubContext from "../../context/github/GitHubContext";
+import AlertContext from "../../context/alert/AlertContext";
+import Alert from "../layout/Alert";
 
 function UserSearch() {
   const [text, setText] = useState("");
 
   const { searchUsers } = useContext(GitHubContext);
+  const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
 
@@ -20,7 +23,7 @@ function UserSearch() {
     e.preventDefault();
 
     if (text === "") {
-      alert("Please enter a user name");
+      setAlert("Please enter a GitHub username", "error");
     } else {
       searchUsers(text);
 
@@ -30,7 +33,11 @@ function UserSearch() {
 
   return (
     <div className="mb-4">
-      <form onSubmit={handleSubmit} className="form-control w-96 mx-auto ">
+      <form
+        onSubmit={handleSubmit}
+        className="form-control w-96 mx-auto -translate-y-8"
+      >
+        <Alert />
         <div className="relative ">
           <input
             type="text"

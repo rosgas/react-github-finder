@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Background from "./components/assets/main-bg.png";
+// import Alert from "./components/layout/Alert";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 function App() {
   return (
-    <AlertProvider>
-      <GitHubProvider>
+    <GitHubProvider>
+      <AlertProvider>
         <Router>
           <div
             className="flex flex-col items-center justify-between h-screen leading-normal text-slate-100 overflow-hidden"
@@ -33,8 +34,8 @@ function App() {
             <Footer />
           </div>
         </Router>
-      </GitHubProvider>
-    </AlertProvider>
+      </AlertProvider>
+    </GitHubProvider>
   );
 }
 

@@ -1,8 +1,7 @@
 import { createContext, useReducer } from "react";
-import GitHubContext from "../github/GitHubContext";
 import alertReducer from "./AlertReducer";
 
-const AlertContex = createContext();
+const AlertContext = createContext();
 
 export const AlertProvider = ({ children }) => {
   const initialState = null;
@@ -19,10 +18,10 @@ export const AlertProvider = ({ children }) => {
   };
 
   return (
-    <GitHubContext.Provider value={{ alert: state, setAlert }}>
+    <AlertContext.Provider value={{ alert: state, setAlert }}>
       {children}
-    </GitHubContext.Provider>
+    </AlertContext.Provider>
   );
 };
 
-export default AlertContex;
+export default AlertContext;
