@@ -23,6 +23,6 @@ app.use(express.static("public"));
 
 // Routes
 
-app.use("/users", require("./routes/github"));
+app.use("/search", require("./routes/github"));
 
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));
