@@ -22,7 +22,7 @@ function App() {
           >
             <Navbar />
 
-            <main className="container mx-auto">
+            <main className=" sm:container sm:mx-auto w-full px-3.5">
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/user/:login" element={<User />}></Route>

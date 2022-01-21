@@ -1,7 +1,9 @@
 function About() {
   return (
-    <div className="mx-auto max-w-4xl bg-sky-800/60 rounded-sm shadow-lg p-10 text-slate-300">
-      <h1 className="mb-4 text-3xl text-slate-100">GitHub Finder</h1>
+    <div className="mx-auto max-w-4xl md:bg-sky-800/60 rounded-sm md:shadow-lg p-10 text-slate-300">
+      <h1 className="mb-4 md:text-3xl text-2xl text-slate-100">
+        GitHub Finder
+      </h1>
       <p className="">
         A <span className="text-slate-100">React.js</span> app to search GitHub
         profiles and see profile details. This app uses the{" "}

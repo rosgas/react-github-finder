@@ -35,7 +35,7 @@ function UserSearch() {
     <div className="mb-4">
       <form
         onSubmit={handleSubmit}
-        className="form-control w-96 mx-auto -translate-y-8"
+        className="form-control md:w-96 md:mx-auto -translate-y-8"
       >
         <Alert />
         <div className="relative ">
