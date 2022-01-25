@@ -104,7 +104,7 @@ function User() {
             )}
           </div>
         </div>
-        <div className="grid md:grid-cols-4 grid-cols-4 gap-y-5 md:text-base text-xs">
+        <div className="mb-6 grid md:grid-cols-4 grid-cols-4 gap-y-5 md:text-base text-xs">
           <div className="flex flex-col items-center">
             <div className="bg-sky-600 h-16 w-16 rounded-full flex items-center justify-center">
               {followers}
@@ -130,13 +130,17 @@ function User() {
             <h2 className="text-slate-300 mt-2">Gists</h2>
           </div>
         </div>
-        {/* <h2 className="text-2xl">Latest repositories</h2> */}
+        <div className="mb-4 w-full border-t-2 border-slate-500"></div>
 
-        {/* <a href={html_url} target="_blank"
-        rel="noopener noreferrer" className="mb-3 btn btn-outline btn-accent">
+        <a
+          href={html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-3 btn btn-outline btn-accent"
+        >
           <img src={octocat} alt="octocat" className="h-8 pr-2" /> Visit gitHub
           profile
-        </a> */}
+        </a>
       </div>
     </div>
   );
