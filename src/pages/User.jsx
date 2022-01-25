@@ -5,16 +5,18 @@ import { FaTwitter } from "react-icons/fa";
 import { BsGlobe2 } from "react-icons/bs";
 import { HiArrowLeft } from "react-icons/hi";
 import GitHubContext from "../context/github/GitHubContext";
+import RepoList from "../components/repos/RepoList";
 import Spinner from "../components/layout/Spinner";
 import octocat from "../components/assets/octocat.png";
 
 function User() {
-  const { getUser, user, loading } = useContext(GitHubContext);
+  const { getUser, user, loading, getRepos, repos } = useContext(GitHubContext);
 
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
+    getRepos(params.login);
   }, []);
 
   const {
@@ -131,12 +133,12 @@ function User() {
           </div>
         </div>
         <div className="mb-4 w-full border-t-2 border-slate-500"></div>
-
+        <RepoList />
         <a
           href={html_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mb-3 btn btn-outline btn-accent"
+          className="mt-3 btn btn-outline btn-accent"
         >
           <img src={octocat} alt="octocat" className="h-8 pr-2" /> Visit gitHub
           profile
