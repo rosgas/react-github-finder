@@ -10,13 +10,14 @@ import Spinner from "../components/layout/Spinner";
 import octocat from "../components/assets/octocat.png";
 
 function User() {
-  const { getUser, user, loading, getRepos, repos } = useContext(GitHubContext);
+  const { getUser, user, loading, getRepos } = useContext(GitHubContext);
 
   const params = useParams();
 
   useEffect(() => {
     getUser(params.login);
     getRepos(params.login);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
@@ -56,7 +57,7 @@ function User() {
           <figure className="md:row-span-3 ">
             <img
               src={avatar_url}
-              alt="Profile image"
+              alt="Avatar"
               className="md:h-auto md:w-56 rounded-full border-4 border-emerald-300/80"
             />
           </figure>
