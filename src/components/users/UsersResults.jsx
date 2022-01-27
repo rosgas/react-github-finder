@@ -6,10 +6,12 @@ import Spinner from "../layout/Spinner";
 import GitHubContext from "../../context/github/GitHubContext";
 
 function UserResults() {
-  const { users, loading, clearUsers } = useContext(GitHubContext);
+  const { users, loading, dispatch } = useContext(GitHubContext);
 
   const handleClear = () => {
-    clearUsers();
+    dispatch({
+      type: "CLEAR_USERS",
+    });
   };
 
   if (!loading) {

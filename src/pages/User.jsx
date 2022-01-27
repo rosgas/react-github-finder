@@ -6,20 +6,37 @@ import { FaTwitter } from "react-icons/fa";
 import { BsGlobe2 } from "react-icons/bs";
 import { HiArrowLeft } from "react-icons/hi";
 import GitHubContext from "../context/github/GitHubContext";
+import { getUser, getRepos } from "../context/github/GitHubAction";
 import RepoList from "../components/repos/RepoList";
 import Spinner from "../components/layout/Spinner";
 import octocat from "../components/assets/octocat.png";
 
 function User() {
-  const { getUser, user, loading, getRepos } = useContext(GitHubContext);
+  const { dispatch, user, loading } = useContext(GitHubContext);
 
   const params = useParams();
 
   useEffect(() => {
-    getUser(params.login);
-    getRepos(params.login);
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    dispatch({ type: "SET_LOADING" });
+
+    const getUserData = async () => {
+      const userData = await getUser(params.login);
+
+      dispatch({
+        type: "GET_USER",
+        payload: userData,
+      });
+
+      const userRepos = await getRepos(params.login);
+
+      dispatch({
+        type: "GET_REPOS",
+        payload: userRepos,
+      });
+    };
+
+    getUserData();
+  }, [dispatch, params.login]);
 
   const {
     hireable,

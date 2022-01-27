@@ -2,13 +2,14 @@ import { useState, useContext } from "react";
 import { MdClear } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
 import GitHubContext from "../../context/github/GitHubContext";
+import { searchUsers } from "../../context/github/GitHubAction";
 import AlertContext from "../../context/alert/AlertContext";
 import Alert from "../layout/Alert";
 
 function UserSearch() {
   const [text, setText] = useState("");
 
-  const { searchUsers } = useContext(GitHubContext);
+  const { dispatch } = useContext(GitHubContext);
   const { setAlert } = useContext(AlertContext);
 
   const handleChange = (e) => setText(e.target.value);
@@ -19,13 +20,22 @@ function UserSearch() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (text === "") {
       setAlert("Please enter a GitHub username", "error");
     } else {
-      searchUsers(text);
+      const users = await searchUsers(text);
+
+      dispatch({
+        type: "SET_LOADING",
+      });
+
+      dispatch({
+        type: "GET_USERS",
+        payload: users,
+      });
 
       setText("");
     }
