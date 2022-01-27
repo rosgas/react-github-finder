@@ -14,6 +14,7 @@ function RepoItem({ repo }) {
     watchers_count,
     stargazers_count,
   } = repo;
+
   return (
     <>
       <div className="p-4 mb-3 rounded-sm shadow-lg bg-gradient-to-r from-slate-200/10">
