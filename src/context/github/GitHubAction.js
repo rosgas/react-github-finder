@@ -1,5 +1,5 @@
 export const searchUsers = async (text) => {
-  const response = await fetch(`http://localhost:8000/search?q=${text}`);
+  const response = await fetch(`https://api.github.com/search/users?q=${text}`);
   const { items } = await response.json();
 
   return items;
