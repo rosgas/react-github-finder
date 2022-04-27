@@ -25,7 +25,7 @@
 - <a href="#technologies-section">Technologies used</a>
 - <a href="#react-section">React folder structure</a>
 - <a href="#setup-section">Installation/Usage</a>
-- <a href="#acknowledgmens-section">Acknowledgmens</a>
+- <a href="#acknowledgments-section">Acknowledgments</a>
 
 <br>
 
@@ -188,6 +188,6 @@ This project is licensed under the [MIT License](https://github.com/rosgas/react
 
 <br>
 
-<h2 id="acknowledgmens-section">Acknowledgmens</h2>
+<h2 id="acknowledgments-section">Acknowledgments</h2>
 
 - [Traversy Media](https://www.traversymedia.com/)
